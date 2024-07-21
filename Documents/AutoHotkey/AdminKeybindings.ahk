@@ -1,8 +1,7 @@
 #SingleInstance
 
 ;;;;;;;;;;;! Variables ;;;;;;;;;;;
-panic := True
-noPausePanic := True
+Panic := True
 
 ;;;;;;;;;;;! Key Bindings ;;;;;;;;;;;
 ;;;;? Flow Launcher ;;;;
@@ -48,37 +47,30 @@ CapsLock::Delete ;* Map Caps Lock to Delete
 
     Run, %FilePath%
 return
-#+x:: ;* When first pressed, switches to the right desktop, mutes audio, and pauses any media playing. Then, switches back to the left desktop, unmutes audio, and unpauses media ==> Win + Shift + X
-    if panic {
+#+z:: ;* When first pressed, switches to the right desktop, mutes audio. Then, switches back to the left desktop, unmutes audio ==> Win + Shift + X
+    if Panic {
         Send ^#{Right}
+        Send #d
         Send #+q
         Send "{Volume_Mute}"
-        Send "{Media_Play_Pause}"
-        panic := False
+        Panic := False
     } else {
         Send ^#{Left}
+        Send #d
         Send #+q
         Send "{Volume_Mute}"
-        Send "{Media_Play_Pause}"
-        panic := True
+        Panic := True
     }
 return
-#+z:: ;* When first pressed, switches to the right desktop, mutes audio. Then, switches back to the left desktop, unmutes audio ==> Win + Shift + X
-    if noPausePanic {
-        Send ^#{Right}
-        Send #+q
-        Send "{Volume_Mute}"
-        noPausePanic := False
-    } else {
-        Send ^#{Left}
-        Send #+q
-        Send "{Volume_Mute}"
-        noPausePanic := True
+#w::
+    try if ((pDesktopWallpaper := ComObjCreate("{C2CF3110-460E-4fc1-B9D0-8A1C0C9CC4BD}", "{B92B56A9-8B55-4E14-9A89-0199BBB6F93B}"))) {
+        DllCall(NumGet(NumGet(pDesktopWallpaper+0)+16*A_PtrSize), "Ptr", pDesktopWallpaper, "Ptr", 0, "UInt", 0) ; IDesktopWallpaper::AdvanceSlideshow - https://msdn.microsoft.com/en-us/library/windows/desktop/hh706947(v=vs.85).aspx
+        ObjRelease(pDesktopWallpaper)
     }
 return
 
 ;;;;? Power ;;;;
-#x:: ;* Starting key chord for power menu ==> Win + X
+#+x:: ;* Starting key chord for power menu ==> Win + X
 
     Input, SingleKey, L1, {Esc} ;* Getting key input
 
