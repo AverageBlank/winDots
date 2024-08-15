@@ -27,14 +27,14 @@ Panic := True
 return
 
 ;;;;? Arrow Keys ;;;;
-#h::Send {Left}
-#j::Send {Down}
-#k::Send {Up}
-#l::Send {Right}
-#^h::Send ^{Left}
-#^j::Send ^{Down}
-#^k::Send ^{Up}
-#^l::Send ^{Right}
+!h::Send {Left}
+!j::Send {Down}
+!k::Send {Up}
+!l::Send {Right}
+!^h::Send ^{Left}
+!^j::Send ^{Down}
+!^k::Send ^{Up}
+!^l::Send ^{Right}
 
 ;;;;? Window Modifications ;;;;
 #+c::Send !{F4} ;* Close a program ==> Win + Shift + C
