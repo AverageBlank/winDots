@@ -4,6 +4,30 @@
 Panic := True
 
 ;;;;;;;;;;;! Key Bindings ;;;;;;;;;;;
+;;;;? Glaze WM ;;;;
+;; Rebinding Workspaces to Win + Num
+#1::Send !1
+#2::Send !2
+#3::Send !3
+#4::Send !4
+#5::Send !5
+#6::Send !6
+#7::Send !7
+#8::Send !8
+#9::Send !9
+
+;; Rebinding Moving Windows to Win + Shfit + Num
+#+1::Send !+1
+#+2::Send !+2
+#+3::Send !+3
+#+4::Send !+4
+#+5::Send !+5
+#+6::Send !+6
+#+7::Send !+7
+#+8::Send !+8
+#+9::Send !+9
+
+
 ;;;;? Flow Launcher ;;;;
 #+Return::Send #y ;* Launch flow launcher ==> Win + Shift + Return
 #v:: Send ^!{F4} ;* Clipbaord Manager ==> Win + V
@@ -42,7 +66,7 @@ return
 #^.::Send ^#{Right} ;* Switch to right desktop ==> Win + Control + .
 #+,::Send #+{Left} ;* Send window to left screen ==> Win + Shift + ,
 #+.::Send #+{Right} ;* Send window to right screen ==> Win + Shift + .
-#+t:: ;* If a window is not maximized, maximized it, and vice-versa ==> Win + Shift + T
+#+f:: ;* If a window is not maximized, maximized it, and vice-versa ==> Win + Shift + T
     WinGet, State, MinMax, A
     if State = 1
         Send #{Down} ;* Un-Maximizing the window
