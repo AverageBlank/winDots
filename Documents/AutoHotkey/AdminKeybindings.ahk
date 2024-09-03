@@ -62,8 +62,6 @@ return
 
 ;;;;? Window Modifications ;;;;
 #+c::Send !{F4} ;* Close a program ==> Win + Shift + C
-#^,::Send ^#{Left} ;* Switch to left desktop ==> Win + Control + ,
-#^.::Send ^#{Right} ;* Switch to right desktop ==> Win + Control + .
 #+,::Send #+{Left} ;* Send window to left screen ==> Win + Shift + ,
 #+.::Send #+{Right} ;* Send window to right screen ==> Win + Shift + .
 #+f:: ;* If a window is not maximized, maximized it, and vice-versa ==> Win + Shift + T

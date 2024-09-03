@@ -206,6 +206,12 @@ keybindings:
   - commands: ['move-workspace --direction down']
     bindings: ['alt+shift+s']
 
+  - commands: ['focus --next-workspace']
+    bindings: ['lwin+control+.']
+  - commands: ['focus --prev-workspace']
+    bindings: ['lwin+control+,']
+
+
   # Move focused window to a workspace defined in `workspaces` config.
   - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
